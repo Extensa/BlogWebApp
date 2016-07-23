@@ -1,0 +1,36 @@
+{
+  "name": "WebPack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "services": "node ./server.js",
+    "start": "webpack-dev-server",
+    "start:all": "npm run servers:all",
+    "servers:all": "concurrently --kill-others \"npm start\" \"npm run services\"",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "bcrypt": "^0.8.7",
+    "boom": "^3.2.2",
+    "concurrently": "^2.2.0",
+    "css-loader": "^0.23.1",
+    "hapi-auth-jwt": "^4.0.0",
+    "html-webpack-plugin": "^2.22.0",
+    "joi": "^9.0.1",
+    "jsonwebtoken": "^7.1.6",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-merge": "^0.14.0",
+    "webpack-validator": "^2.2.2"
+  },
+  "dependencies": {
+    "hapi": "^13.5.0",
+    "mongoose": "^4.5.4"
+  }
+}
