@@ -14,7 +14,6 @@ function verifyCredentials(request, reply) {
         if (err) {
             reply(Boom.badRequest(err));
         } else if (user) {
-            console.log(user);
             bcrypt.compare(password, user.password, (err, isValid) => {
                 if (isValid) { reply(user); }
                 else { reply(Boom.badRequest('Incorrect password!')); }

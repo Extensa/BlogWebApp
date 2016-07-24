@@ -47,3 +47,30 @@ exports.login = {
         })
     }
 }
+
+exports.changePassword = {
+    handler: (request, reply) => {
+        User.findById(request.auth.credentials.id, (err, user) => {
+            if (err) { Boom.badRequest(err) }
+            else if (user) {
+                hashPassword(request.payload.password, (err, hash) => {
+                    if (err) { reply(Boom.badRequest(err)); }
+
+                    user.password = hash;
+                    user.save((err) => {
+                        if (err) { reply(Boom.badRequest(err)); }
+                        else { reply('Your password have been changed successfuly').code(200); }
+                    })
+                })
+            }
+        });
+    },
+    validate: {
+        payload: Joi.object({
+            password: Joi.string().required()
+        })
+    },
+    auth: {
+        strategy: 'jwt'
+    }
+}
