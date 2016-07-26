@@ -1,7 +1,7 @@
 'use strict';
 
 const Boom = require('boom');
-const User = require('../UserModel');
+const User = require('../Users/UserModel');
 
 function verifyUniqueUser(request, reply) {
   User.findOne({

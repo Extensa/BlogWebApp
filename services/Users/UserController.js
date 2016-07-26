@@ -2,10 +2,10 @@
 
 const Boom = require('boom');
 const Joi = require('joi');
-var hashPassword = require('./helpers/hashPassword'),
-    tokenGenerator = require('./helpers/tokenGenerator'),
-    verifyUniqueUser = require('./helpers/verifyUniqueUser'),
-    verifyCredentials = require('./helpers/verifyCredentials'),
+var hashPassword = require('../helpers/hashPassword'),
+    tokenGenerator = require('../helpers/tokenGenerator'),
+    verifyUniqueUser = require('../helpers/verifyUniqueUser'),
+    verifyCredentials = require('../helpers/verifyCredentials'),
     User = require('./UserModel');
 
 exports.register = {
@@ -38,7 +38,7 @@ exports.register = {
 exports.login = {
     pre: [{ method: verifyCredentials, assign: 'user' }],
     handler: (request, reply) => {
-        reply({ access_token: tokenGenerator(request.pre.user) }).code(201);
+        reply({ access_token: tokenGenerator(request.pre.user) }).code(200);
     },
     validate: {
         payload: Joi.object({
@@ -59,7 +59,7 @@ exports.changePassword = {
                     user.password = hash;
                     user.save((err) => {
                         if (err) { reply(Boom.badRequest(err)); }
-                        else { reply('Your password have been changed successfuly').code(200); }
+                        else { reply({ message: 'Your password have been changed successfuly!' }).code(200); }
                     })
                 })
             }
