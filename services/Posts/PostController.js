@@ -17,7 +17,7 @@ exports.create = {
         post.save((err, post) => {
             if (err) { Boom.badRequest(err); }
 
-            reply({ message: 'Post created successfuly!' }).code(201);
+            reply({ message: 'Post is created successfuly!' }).code(201);
         });
     },
     validate: {
@@ -42,7 +42,7 @@ exports.getAll = {
             } else {
                 reply(Boom.badRequest('There are no posts!'));
             }
-        });
+        }).populate({ path: 'creator', select: 'username'});
     }
 }
 
@@ -58,6 +58,39 @@ exports.getById = {
             } else {
                 reply(Boom.badRequest('There is no such post!'));
             }
+        }).populate({ path: 'creator', select: 'username'});
+    }
+}
+
+exports.edit = {
+    handler: (request, reply) => {
+        var postId = request.params.postId;
+
+        Post.findById(postId, (err, post) => {
+            if (err) { reply(Boom.badRequest(err)); }
+
+            if (post) {
+                post.title = request.payload.title;
+                post.content = request.payload.content;
+
+                post.save((err, post) => {
+                    if (err) { reply(Boom.badRequest(err)); }
+
+                    reply({ message: 'Post is updated successfuly!' })
+                })
+            } else {
+                
+            }
+        });
+    },
+    validate: {
+        payload: Joi.object({
+            title: Joi.string().min(5).max(60).required(),
+            content: Joi.string().min(10).required()
         })
+    },
+    auth: {
+        strategy: 'jwt',
+        scope: ['admin']
     }
 }
