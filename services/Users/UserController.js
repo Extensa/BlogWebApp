@@ -50,7 +50,9 @@ exports.login = {
 
 exports.changePassword = {
     handler: (request, reply) => {
-        User.findById(request.auth.credentials.id, (err, user) => {
+        var userId = request.auth.credentials.id;
+
+        User.findById(userId, (err, user) => {
             if (err) { Boom.badRequest(err) }
             else if (user) {
                 hashPassword(request.payload.password, (err, hash) => {

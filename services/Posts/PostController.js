@@ -20,7 +20,7 @@ exports.create = {
             reply({ message: 'Post created successfuly!' }).code(201);
         });
     },
-    validation: {
+    validate: {
         payload: Joi.object({
             title: Joi.string().min(5).max(60).required(),
             content: Joi.string().min(10).required()
@@ -29,5 +29,35 @@ exports.create = {
     auth: {
         strategy: 'jwt',
         scope: ['admin']
+    }
+}
+
+exports.getAll = {
+    handler: (request, reply) => {
+        Post.find({}, (err, posts) => {
+            if (err) { reply(Boom.badRequest(err)); }
+
+            if(posts) {
+                reply(posts);
+            } else {
+                reply(Boom.badRequest('There are no posts!'));
+            }
+        });
+    }
+}
+
+exports.getById = {
+    handler: (request, reply) => {
+        var postId = request.params.postId;
+
+        Post.findById(postId, (err, post) => {
+            if (err) { reply(Boom.badRequest(err)); }
+
+            if (post) {
+                reply(post);
+            } else {
+                reply(Boom.badRequest('There is no such post!'));
+            }
+        })
     }
 }
