@@ -5,6 +5,7 @@ const Db = require('./database');
 const secretKey = require('./services/config');
 const UserRoutes = require('./services/Users/UserRoutes');
 const PostRoutes = require('./services/Posts/PostRoutes');
+const CommentRoutes = require('./services/Comments/CommentRoutes');
 
 var server = new Hapi.Server();
 server.connection({ host: 'localhost', port: 3000 });
@@ -18,6 +19,7 @@ server.register(require('hapi-auth-jwt'), (err) => {
 
 server.route(UserRoutes.endpoints);
 server.route(PostRoutes.endpoints);
+server.route(CommentRoutes.endpoints);
 
 server.start(function (err) {
   if (err) { throw err; }

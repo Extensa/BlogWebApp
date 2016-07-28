@@ -17,7 +17,7 @@ exports.create = {
         post.save((err, post) => {
             if (err) { Boom.badRequest(err); }
 
-            reply({ message: 'Post is created successfuly!' }).code(201);
+            reply(post).code(201);
         });
     },
     validate: {
@@ -37,12 +37,12 @@ exports.getAll = {
         Post.find({}, (err, posts) => {
             if (err) { reply(Boom.badRequest(err)); }
 
-            if(posts) {
+            if (posts) {
                 reply(posts);
             } else {
                 reply(Boom.badRequest('There are no posts!'));
             }
-        }).populate({ path: 'creator', select: 'username'});
+        }).populate({ path: 'creator', select: 'username' });
     }
 }
 
@@ -58,7 +58,13 @@ exports.getById = {
             } else {
                 reply(Boom.badRequest('There is no such post!'));
             }
-        }).populate({ path: 'creator', select: 'username'});
+        })
+            .populate({ path: 'creator', select: 'username' })
+            .populate({
+                path: 'comments',
+                select: 'date content creator',
+                populate: { path: 'creator', select: 'username' }
+            });
     }
 }
 
@@ -79,7 +85,7 @@ exports.edit = {
                     reply({ message: 'Post is updated successfuly!' })
                 })
             } else {
-                
+
             }
         });
     },
