@@ -15,6 +15,7 @@ exports.register = {
         user.username = request.payload.username;
         user.email = request.payload.email;
         user.admin = false;
+        user.blogManager = true;
         
         hashPassword(request.payload.password, (err, hash) => {
             if (err) { Boom.badRequest(err);}

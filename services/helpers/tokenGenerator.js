@@ -8,6 +8,8 @@ function tokenGenerator(user) {
 
     if (user.admin) {
         scopes = 'admin';
+    } else if (user.blogManager) {
+        scopes = 'manager';
     }
 
     return jwt.sign(

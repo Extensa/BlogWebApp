@@ -40,7 +40,7 @@ exports.getAll = {
             if (posts) {
                 reply(posts);
             } else {
-                reply(Boom.badRequest('There are no posts!'));
+                reply(Boom.notFound('There are no posts!'));
             }
         }).populate({ path: 'creator', select: 'username' });
     }
@@ -56,7 +56,7 @@ exports.getById = {
             if (post) {
                 reply(post);
             } else {
-                reply(Boom.badRequest('There is no such post!'));
+                reply(Boom.notFound('There is no such post!'));
             }
         })
             .populate({ path: 'creator', select: 'username' })
