@@ -1,0 +1,294 @@
+{
+	"id": "5a72ecb2-43ae-bfd4-7374-48820d85fb2e",
+	"name": "BlogApp",
+	"description": "",
+	"order": [
+		"093ba0e7-c9dc-4ec3-5d58-a28939fa908f",
+		"780a8e27-4ba1-1158-83c5-52e97868cf4c",
+		"b4699b52-1c7a-877d-18fc-66b1434429a6",
+		"81a1ae44-a66f-c478-ea4a-9e9fa692efca",
+		"76aff1f3-063d-3694-1170-6fba06b02db8",
+		"9f6d632c-85ca-c398-b880-96dd55b29380",
+		"6576bf47-d895-e118-7de5-959256b4c788",
+		"0c36b00e-dd6d-088c-fbd7-2fcb6febb195",
+		"e7404ede-edb5-c660-b81f-937f8367e7f5",
+		"a151dd37-e456-1c57-358d-ffd3f29848e6"
+	],
+	"folders": [],
+	"timestamp": 1469293830606,
+	"owner": "123836",
+	"public": false,
+	"published": false,
+	"requests": [
+		{
+			"id": "093ba0e7-c9dc-4ec3-5d58-a28939fa908f",
+			"headers": "",
+			"url": "http://localhost:3000/api/users/login",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "username",
+					"value": "admin",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "admin",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "admin@admin.com",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1469293924534,
+			"name": "Register user",
+			"description": "Register user",
+			"collectionId": "5a72ecb2-43ae-bfd4-7374-48820d85fb2e",
+			"responses": []
+		},
+		{
+			"id": "0c36b00e-dd6d-088c-fbd7-2fcb6febb195",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU3OTM4MjY4YzIzZmI1OTQxZjI0YzY4OCIsInVzZXJuYW1lIjoiYWRtaW4iLCJzY29wZSI6ImFkbWluIiwiaWF0IjoxNDY5Njk0NTkxLCJleHAiOjE0Njk2OTgxOTF9.AHzUWRWXli9ipPyP9zd1jaMAc8EZMA-7bT7kZZ_fisc\n",
+			"url": "http://localhost:3000/api/posts/5796687427de4f84142979b0/comments",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "content",
+					"value": "Sto",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1469694601181,
+			"name": "Create a comment",
+			"description": "Create a comment",
+			"collectionId": "5a72ecb2-43ae-bfd4-7374-48820d85fb2e",
+			"responses": []
+		},
+		{
+			"id": "6576bf47-d895-e118-7de5-959256b4c788",
+			"headers": "Authorization: Bearer \n",
+			"url": "http://localhost:3000/api/posts/5796687427de4f84142979b0",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "5a72ecb2-43ae-bfd4-7374-48820d85fb2e",
+			"data": [
+				{
+					"key": "title",
+					"value": "Title 2",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "content",
+					"value": "Long live the king",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "Edit a post",
+			"description": "Edit post",
+			"descriptionFormat": "html",
+			"time": 1469645070879,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "76aff1f3-063d-3694-1170-6fba06b02db8",
+			"headers": "",
+			"url": "http://localhost:3000/api/posts",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "5a72ecb2-43ae-bfd4-7374-48820d85fb2e",
+			"data": null,
+			"dataMode": "params",
+			"name": "Get all posts",
+			"description": "Get all posts",
+			"descriptionFormat": "html",
+			"time": 1469610457433,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "780a8e27-4ba1-1158-83c5-52e97868cf4c",
+			"headers": "",
+			"url": "http://localhost:3000/api/users/login",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "username",
+					"value": "admin",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1469377178091,
+			"name": "Login",
+			"description": "Login",
+			"collectionId": "5a72ecb2-43ae-bfd4-7374-48820d85fb2e",
+			"responses": []
+		},
+		{
+			"id": "81a1ae44-a66f-c478-ea4a-9e9fa692efca",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU3OTM2NmE0MjEyMmIzZGMxMDhhYWI2MCIsInVzZXJuYW1lIjoidGVzdCIsImlhdCI6MTQ2OTU1NDk3OSwiZXhwIjoxNDY5NTU4NTc5fQ.jo_APPfaDeYWLRYQdVtE9H6MoZz5tALu8hPbP1SeemY\n",
+			"url": "http://localhost:3000/api/posts",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "title",
+					"value": "Test",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "content",
+					"value": "Lorem ipsum targarien cardashian",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1469554994886,
+			"name": "Create Post",
+			"description": "Create Post",
+			"collectionId": "5a72ecb2-43ae-bfd4-7374-48820d85fb2e",
+			"responses": []
+		},
+		{
+			"id": "9f6d632c-85ca-c398-b880-96dd55b29380",
+			"headers": "",
+			"url": "http://localhost:3000/api/posts/5796687427de4f84142979b0",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1469610430423,
+			"name": "Get post by id",
+			"description": "Get post by id",
+			"collectionId": "5a72ecb2-43ae-bfd4-7374-48820d85fb2e",
+			"responses": []
+		},
+		{
+			"id": "a151dd37-e456-1c57-358d-ffd3f29848e6",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU3OTM4MjY4YzIzZmI1OTQxZjI0YzY4OCIsInVzZXJuYW1lIjoiYWRtaW4iLCJzY29wZSI6ImFkbWluIiwiaWF0IjoxNDY5NzA3MDI2LCJleHAiOjE0Njk3MTA2MjZ9.Pb3kwCb_uqKqNubL93iZanv_zT7iYP6kEPuJipyiHWo\n",
+			"url": "http://localhost:3000/api/posts/5796687427de4f84142979b0/comments/5799c294542f949c16cc9c03",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1469707034839,
+			"name": "Delete comment",
+			"description": "",
+			"collectionId": "5a72ecb2-43ae-bfd4-7374-48820d85fb2e",
+			"responses": []
+		},
+		{
+			"id": "b4699b52-1c7a-877d-18fc-66b1434429a6",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU3OTM4MjY4YzIzZmI1OTQxZjI0YzY4OCIsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE0NjkzNzUzMTEsImV4cCI6MTQ2OTM3ODkxMX0.xzXsDf4pfoaQRAgypIzGKmStWq1xwGd4FMUqEDwvqqg\n",
+			"url": "http://localhost:3000/api/users",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [
+				{
+					"key": "password",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1469375326944,
+			"name": "Change user password",
+			"description": "Change Password",
+			"collectionId": "5a72ecb2-43ae-bfd4-7374-48820d85fb2e",
+			"responses": []
+		},
+		{
+			"id": "e7404ede-edb5-c660-b81f-937f8367e7f5",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU3OTM4MjY4YzIzZmI1OTQxZjI0YzY4OCIsInVzZXJuYW1lIjoiYWRtaW4iLCJzY29wZSI6ImFkbWluIiwiaWF0IjoxNDY5NzAwNzYxLCJleHAiOjE0Njk3MDQzNjF9.35lgfnAxBe7lFkLTwZLBEJlm2kv3nclyHAz7GLCEOcY\n",
+			"url": "http://localhost:3000/api/posts/5796687427de4f84142979b0/comments/5799c294542f949c16cc9c03",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [
+				{
+					"key": "content",
+					"value": "Not test anymore",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1469700770966,
+			"name": "Edit comment ",
+			"description": "edit a comment",
+			"collectionId": "5a72ecb2-43ae-bfd4-7374-48820d85fb2e",
+			"responses": []
+		}
+	]
+}

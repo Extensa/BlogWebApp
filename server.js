@@ -2,13 +2,13 @@
 
 const Hapi = require('hapi');
 const Db = require('./database');
-const secretKey = require('./services/config');
-const UserRoutes = require('./services/Users/UserRoutes');
-const PostRoutes = require('./services/Posts/PostRoutes');
-const CommentRoutes = require('./services/Comments/CommentRoutes');
+const secretKey = require('./api/config');
+const UserRoutes = require('./api/Users/UserRoutes');
+const PostRoutes = require('./api/Posts/PostRoutes');
+const CommentRoutes = require('./api/Comments/CommentRoutes');
 
 var server = new Hapi.Server();
-server.connection({ host: 'localhost', port: 3000 });
+server.connection({ host: 'localhost', port: 3000, routes: { cors: true } });
 
 server.register(require('hapi-auth-jwt'), (err) => {
   server.auth.strategy('jwt', 'jwt', {
