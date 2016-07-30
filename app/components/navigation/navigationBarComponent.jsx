@@ -26,12 +26,12 @@ export default class NavigationBarComponent extends React.Component {
     }
 
     render() {
-        if (this.state.isLogged) {
+        if (this.state.isLogged || this.context.authenticationService.isLogged()) {
             return (
                 <nav className="navbar navbar-default">
                     <div className="container">
                         <div className="navbar-header">
-                            <Link to="/">Web Blog</Link>
+                            <Link to="/" className="navbar-brand">Web Blog</Link>
                         </div>
                         <ul className="nav navbar-nav navbar-right">
                             <li><a onClick={this.onLogout}><span className="glyphicon glyphicon-off"></span> Logout</a></li>
@@ -44,7 +44,7 @@ export default class NavigationBarComponent extends React.Component {
             <nav className="navbar navbar-default">
                 <div className="container">
                     <div className="navbar-header">
-                        <a className="navbar-brand">Web Blog</a>
+                        <Link to="/" className="navbar-brand">Web Blog</Link>
                     </div>
                     <ul className="nav navbar-nav navbar-right">
                         <li><Link to="login"><span className="glyphicon glyphicon-log-in"></span> Login</Link></li>

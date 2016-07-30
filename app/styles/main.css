@@ -3,3 +3,5 @@
 a { cursor: pointer; }
 
 .glyphicon-time { margin-left: 10px; }
+
+.panel-body { padding: 10px; }
