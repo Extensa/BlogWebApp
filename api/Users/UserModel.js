@@ -9,7 +9,6 @@ var UserSchema = new Schema({
     password: { type: String, required: true },
     admin: { type: Boolean, required: true },
     blogManager: { type: Boolean, required: true },
-    posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }]
 });
 
 module.exports = Mongoose.model('User', UserSchema);

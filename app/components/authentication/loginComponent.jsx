@@ -34,6 +34,7 @@ export default class LoginComponent extends React.Component {
         this.context.authenticationService.login({ username: username, password: password })
             .then((result) => {
                 this.context.authenticationService.storeUser(result);
+                this.context.router.push({ pathname: '/' });
             }, (err) => {
                 console.log(err);
             });

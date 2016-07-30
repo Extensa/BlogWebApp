@@ -1,7 +1,5 @@
-.navbar {
-    border-radius: 0 !important;
-}
+.navbar { border-radius: 0 !important; }
 
-a {
-    cursor: pointer;
-}
+a { cursor: pointer; }
+
+.glyphicon-time { margin-left: 10px; }

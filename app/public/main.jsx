@@ -5,10 +5,12 @@ import { Router, Route, browserHistory } from 'react-router';
 /* Components */
 import RegisterComponent from "../components/authentication/registerComponent";
 import LoginComponent from "../components/authentication/loginComponent";
-import NavigationBarComponent from "../components/navigationComponent/navigationBarComponent";
+import NavigationBarComponent from "../components/navigation/navigationBarComponent";
+import PostComponent from "../components/post/postComponent";
 
 /* Services */
 import AuthenticationService from "../services/authenticationService";
+import PostService from "../services/postService";
 
 const routes = ()=> {
     return (
@@ -16,6 +18,7 @@ const routes = ()=> {
             <Route component={App}>
                 <Route path="/register" component={RegisterComponent}/>
                 <Route path="/login" component={LoginComponent}/>
+                <Route path="/" component={PostComponent}/>
             </Route>
         </Router>
     );
@@ -28,11 +31,13 @@ class App extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.authenticationService = new AuthenticationService(BASEURL);
+        this.postService = new PostService(BASEURL);
     }
 
     getChildContext() {
         return {
             authenticationService: this.authenticationService,
+            postService: this.postService
         };
     }
 
@@ -55,6 +60,7 @@ App.contextTypes = {
 };
 App.childContextTypes = {
     authenticationService: React.PropTypes.object,
+    postService: React.PropTypes.object
 };
 
 ReactDOM.render(routes(), document.getElementById('app'));
