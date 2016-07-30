@@ -2,28 +2,32 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory } from 'react-router';
 
+/* Components */
 import RegisterComponent from "../components/authentication/registerComponent";
 import LoginComponent from "../components/authentication/loginComponent";
+import NavigationBarComponent from "../components/navigationComponent/navigationBarComponent";
 
+/* Services */
 import AuthenticationService from "../services/authenticationService";
 
 const routes = ()=> {
     return (
         <Router history={browserHistory}>
             <Route component={App}>
-                <Route path="register" component={RegisterComponent}/>
-                <Route path="login" component={LoginComponent}/>
+                <Route path="/register" component={RegisterComponent}/>
+                <Route path="/login" component={LoginComponent}/>
             </Route>
         </Router>
     );
 };
 
-const baseUrl = 'http://localhost:3000/api';
+/* Base api url */
+const BASEURL = 'http://localhost:3000/api';
 
 class App extends React.Component {
     constructor(props, context) {
         super(props, context);
-        this.authenticationService = new AuthenticationService(baseUrl);
+        this.authenticationService = new AuthenticationService(BASEURL);
     }
 
     getChildContext() {
@@ -35,6 +39,7 @@ class App extends React.Component {
     render() {
         return (
             <div className="wrapper">
+                <NavigationBarComponent/>
                 <div className="container">
                     {this.props.children}
                 </div>
