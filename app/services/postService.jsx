@@ -12,7 +12,19 @@ export default class PostService {
             $.ajax({
                 method: 'GET',
                 url: url,
-                dataType: 'json',
+                dataType: 'json'
+            }).done(resolve).fail(reject);
+        });
+    }
+
+    getById(id) {
+        let url = this.baseUrl + '/posts/' + id;
+
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                method: 'GET',
+                url: url,
+                dataType: 'json'
             }).done(resolve).fail(reject);
         });
     }

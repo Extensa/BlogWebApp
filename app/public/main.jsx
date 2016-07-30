@@ -7,6 +7,7 @@ import RegisterComponent from "../components/authentication/registerComponent";
 import LoginComponent from "../components/authentication/loginComponent";
 import NavigationBarComponent from "../components/navigation/navigationBarComponent";
 import PostComponent from "../components/post/postComponent";
+import PostDetailsComponent from "../components/post/postDetailsComponent"
 
 /* Services */
 import AuthenticationService from "../services/authenticationService";
@@ -19,6 +20,7 @@ const routes = ()=> {
                 <Route path="/register" component={RegisterComponent}/>
                 <Route path="/login" component={LoginComponent}/>
                 <Route path="/" component={PostComponent}/>
+                <Route path="/:postId" component={PostDetailsComponent}/>
             </Route>
         </Router>
     );

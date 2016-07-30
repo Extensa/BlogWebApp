@@ -31,7 +31,7 @@ export default class NavigationBarComponent extends React.Component {
                 <nav className="navbar navbar-default">
                     <div className="container">
                         <div className="navbar-header">
-                            <a className="navbar-brand">Web Blog</a>
+                            <Link to="/">Web Blog</Link>
                         </div>
                         <ul className="nav navbar-nav navbar-right">
                             <li><a onClick={this.onLogout}><span className="glyphicon glyphicon-off"></span> Logout</a></li>
